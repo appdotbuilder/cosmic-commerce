@@ -3,8 +3,13 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -56,9 +61,45 @@ Route::controller(CheckoutController::class)->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
+    Route::get('/dashboard', function () {
+        $user = auth()->user();
+        
+        if ($user->isAdmin()) {
+            return redirect('/admin/dashboard');
+        }
+
+        // Get user's orders
+        $orders = $user->orders()
+            ->with('user')
+            ->latest()
+            ->limit(10)
+            ->get();
+
+        // Calculate order statistics
+        $orderStats = [
+            'total' => $user->orders()->count(),
+            'pending' => $user->orders()->where('status', 'pending')->count(),
+            'completed' => $user->orders()->where('status', 'completed')->count(),
+            'totalSpent' => $user->orders()->sum('total_amount'),
+        ];
+
+        return Inertia::render('dashboard', [
+            'orders' => $orders,
+            'orderStats' => $orderStats,
+        ]);
     })->name('dashboard');
+});
+
+// Admin routes - protected by admin middleware
+Route::middleware(['auth', 'verified', \App\Http\Middleware\AdminMiddleware::class])->prefix('admin')->name('admin.')->group(function () {
+    // Admin Dashboard
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    
+    // Admin Product Management
+    Route::resource('products', AdminProductController::class);
+    
+    // Admin Category Management  
+    Route::resource('categories', AdminCategoryController::class);
 });
 
 require __DIR__.'/settings.php';

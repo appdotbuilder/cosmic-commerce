@@ -89,12 +89,14 @@ export default function Welcome({ featuredProducts, categories }: Props) {
                                     🛒
                                 </Link>
                                 {auth.user ? (
-                                    <Link
-                                        href={route('dashboard')}
-                                        className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
-                                    >
-                                        Dashboard
-                                    </Link>
+                                    <div className="flex items-center gap-2">
+                                        <Link
+                                            href={route('dashboard')}
+                                            className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                                        >
+                                            {auth.user.role === 'admin' ? '🚀 Admin Panel' : '👤 Dashboard'}
+                                        </Link>
+                                    </div>
                                 ) : (
                                     <div className="flex items-center gap-2">
                                         <Link
