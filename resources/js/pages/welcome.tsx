@@ -123,27 +123,29 @@ export default function Welcome({ featuredProducts, categories }: Props) {
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="text-center">
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
-                                Modern Fashion
+                                🌟 Modern Fashion
                                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                                    Redefined
+                                    Redefined ✨
                                 </span>
                             </h1>
                             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">
-                                Discover our curated collection of premium clothing designed for the modern individual. 
-                                Clean aesthetics, quality materials, and timeless style.
+                                ✨ Discover our curated collection of premium clothing designed for the modern individual. 
+                                Clean aesthetics, quality materials, and timeless style that speaks to your soul! 🎨
+                                <br/>
+                                <strong className="text-blue-600 dark:text-blue-400">Your journey to exceptional fashion starts here! 🚀</strong>
                             </p>
                             <div className="mt-10 flex items-center justify-center gap-6">
                                 <Link
                                     href={route('products.index')}
-                                    className="rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                                    className="rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200"
                                 >
-                                    Shop Now
+                                    🛍️ Shop Now
                                 </Link>
                                 <Link
                                     href="#featured"
-                                    className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                                    className="text-sm font-semibold leading-6 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                                 >
-                                    View Featured <span aria-hidden="true">→</span>
+                                    ⭐ View Featured <span aria-hidden="true">→</span>
                                 </Link>
                             </div>
                         </div>
@@ -155,10 +157,10 @@ export default function Welcome({ featuredProducts, categories }: Props) {
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                                Shop by Category
+                                🏷️ Shop by Category
                             </h2>
                             <p className="mt-4 text-gray-600 dark:text-gray-300">
-                                Find exactly what you're looking for
+                                Find exactly what you're looking for - from casual to formal! ✨
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -184,10 +186,10 @@ export default function Welcome({ featuredProducts, categories }: Props) {
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                                Featured Products
+                                ⭐ Featured Products
                             </h2>
                             <p className="mt-4 text-gray-600 dark:text-gray-300">
-                                Hand-picked favorites from our collection
+                                Hand-picked favorites that define style and comfort! 💎
                             </p>
                         </div>
                         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -261,26 +263,34 @@ export default function Welcome({ featuredProducts, categories }: Props) {
                 {/* Features Section */}
                 <section className="py-16">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-8">
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                                🎯 Why Choose CosmicClothes?
+                            </h2>
+                            <p className="mt-4 text-gray-600 dark:text-gray-300">
+                                We make fashion accessible, affordable, and amazing! ✨
+                            </p>
+                        </div>
                         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                            <div className="text-center">
-                                <div className="text-4xl mb-4">🚚</div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Free Shipping</h3>
-                                <p className="text-gray-600 dark:text-gray-300">On orders over Rp 500.000</p>
+                            <div className="text-center group hover:transform hover:scale-105 transition-all duration-200 p-6 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                                <div className="text-5xl mb-4">🚚</div>
+                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Fast & Free Shipping</h3>
+                                <p className="text-gray-600 dark:text-gray-300">On orders over Rp 500.000 - lightning fast delivery! ⚡</p>
                             </div>
-                            <div className="text-center">
-                                <div className="text-4xl mb-4">🔄</div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Easy Returns</h3>
-                                <p className="text-gray-600 dark:text-gray-300">30-day return policy</p>
+                            <div className="text-center group hover:transform hover:scale-105 transition-all duration-200 p-6 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                                <div className="text-5xl mb-4">🔄</div>
+                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Hassle-Free Returns</h3>
+                                <p className="text-gray-600 dark:text-gray-300">30-day return policy - love it or return it! 💝</p>
                             </div>
-                            <div className="text-center">
-                                <div className="text-4xl mb-4">💳</div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Secure Payment</h3>
-                                <p className="text-gray-600 dark:text-gray-300">QRIS, Bank Transfer & Crypto</p>
+                            <div className="text-center group hover:transform hover:scale-105 transition-all duration-200 p-6 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                                <div className="text-5xl mb-4">🔐</div>
+                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Ultra Secure Payment</h3>
+                                <p className="text-gray-600 dark:text-gray-300">QRIS, Bank Transfer & Crypto - your choice! 🏦</p>
                             </div>
-                            <div className="text-center">
-                                <div className="text-4xl mb-4">⭐</div>
+                            <div className="text-center group hover:transform hover:scale-105 transition-all duration-200 p-6 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                                <div className="text-5xl mb-4">✨</div>
                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Premium Quality</h3>
-                                <p className="text-gray-600 dark:text-gray-300">Carefully curated materials</p>
+                                <p className="text-gray-600 dark:text-gray-300">Carefully curated materials that feel amazing! 🌟</p>
                             </div>
                         </div>
                     </div>

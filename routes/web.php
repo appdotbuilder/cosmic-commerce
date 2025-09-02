@@ -64,13 +64,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         $user = auth()->user();
         
-        if ($user->isAdmin()) {
-            return redirect('/admin/dashboard');
-        }
-
-        // Get user's orders
+        // Get user's orders with proper relationship loading
         $orders = $user->orders()
-            ->with('user')
             ->latest()
             ->limit(10)
             ->get();
@@ -80,7 +75,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             'total' => $user->orders()->count(),
             'pending' => $user->orders()->where('status', 'pending')->count(),
             'completed' => $user->orders()->where('status', 'completed')->count(),
-            'totalSpent' => $user->orders()->sum('total_amount'),
+            'totalSpent' => (float) $user->orders()->sum('total'),
         ];
 
         return Inertia::render('dashboard', [

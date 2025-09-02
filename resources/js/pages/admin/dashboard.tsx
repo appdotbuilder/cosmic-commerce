@@ -59,10 +59,10 @@ export default function AdminDashboard({ stats }: Props) {
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                            🚀 Admin Dashboard
+                            🚀 Admin Dashboard - CosmicClothes
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mt-2">
-                            Manage your CosmicClothes store
+                            Welcome to your admin panel! Manage products, categories, orders, and grow your fashion empire! ✨
                         </p>
                     </div>
                     <Link

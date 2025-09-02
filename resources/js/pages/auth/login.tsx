@@ -54,7 +54,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             onChange={(e) => setData('email', e.target.value)}
                             placeholder="email@example.com"
                         />
-                        <InputError message={errors.email} />
+                        <InputError message={errors.email} className="mt-1" />
                     </div>
 
                     <div className="grid gap-2">
@@ -76,7 +76,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             onChange={(e) => setData('password', e.target.value)}
                             placeholder="Password"
                         />
-                        <InputError message={errors.password} />
+                        <InputError message={errors.password} className="mt-1" />
                     </div>
 
                     <div className="flex items-center space-x-3">
@@ -104,7 +104,14 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                 </div>
             </form>
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+            {status && (
+                <div className="mb-4 rounded-lg bg-green-50 border border-green-200 p-3">
+                    <div className="flex items-center gap-2">
+                        <span className="text-green-600">✅</span>
+                        <p className="text-sm font-medium text-green-800">{status}</p>
+                    </div>
+                </div>
+            )}
         </AuthLayout>
     );
 }

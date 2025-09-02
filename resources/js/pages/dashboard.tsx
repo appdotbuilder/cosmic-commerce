@@ -15,7 +15,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 interface Order {
     id: number;
-    total_amount: number;
+    total: number;
     status: string;
     created_at: string;
     items_count?: number;
@@ -161,10 +161,10 @@ export default function Dashboard({ orders = [], orderStats }: Props) {
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                            👋 Welcome back, {user?.name}!
+                            👋 Welcome back, {user?.name}! ✨
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mt-2">
-                            Here's your order history and account overview
+                            Here's your personal dashboard - track orders, manage your profile, and discover amazing fashion! 🎨
                         </p>
                     </div>
                     <Link
@@ -242,12 +242,12 @@ export default function Dashboard({ orders = [], orderStats }: Props) {
                     <CardContent>
                         {orders.length === 0 ? (
                             <div className="text-center py-12">
-                                <span className="text-6xl mb-4 block">🛒</span>
+                                <span className="text-6xl mb-4 block">🛍️</span>
                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                                    No orders yet
+                                    Your shopping journey awaits! ✨
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-300 mb-6">
-                                    Start shopping to see your orders here
+                                    Discover amazing fashion pieces and start your first order with CosmicClothes! 🌟
                                 </p>
                                 <Link
                                     href="/products"
@@ -284,7 +284,7 @@ export default function Dashboard({ orders = [], orderStats }: Props) {
                                                 {order.status}
                                             </Badge>
                                             <span className="font-semibold text-gray-900 dark:text-white">
-                                                {formatPrice(order.total_amount)}
+                                                {formatPrice(order.total)}
                                             </span>
                                         </div>
                                     </div>
